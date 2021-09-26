@@ -8,5 +8,23 @@
 </head>
 <body>
     
+    <div id="app">
+        <form>
+            <div>
+                <label for="email">email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="password">password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <button type="submit"></button>
+        </form>
+
+        <span v-text="email"></span>
+        <span v-text="password"></span>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+
 </body>
 </html>
