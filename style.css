@@ -3,8 +3,140 @@
     padding: 0;
     box-sizing: border-box;
 }
+.container{
+    width: 1100px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+.singin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 150px;
+}
+.singin form{
+    padding: 2rem;
+    background-color:#121212;
+    border-radius: 7px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.singin form h2{
+    margin-bottom: 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+.singin form .inputs{
+    position: relative;
+}
+.singin form input{
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    padding: 5px 15px;
+}
+.inputs label{
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 15px;
+    transition: .5s;
+    pointer-events: none;
+}
+.inputs input:focus ~ label,.inputs input:valid ~ label{
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+.loginBtn{
+    position: relative;
+    display: inline-block;
+    padding: 10px 120px;
+    color: #03e9f4;
+    font-size: 20px;
+    transition: 0.5s;
+    margin-top: 30px;
+    text-decoration: none;
+    letter-spacing: 3px;
+    overflow: hidden;
+}
+.loginBtn:hover{
+    background-color: #03e9f4;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 10px #03e9f4;
+}
+.loginBtn span{
+    position: absolute;
+    display: inline-block;
+}
+.loginBtn span:nth-child(odd){
+    width: 100%;
+    height: 2px;
+}
+.loginBtn span:nth-child(even){
+    width: 2px;
+    height: 100%;
+}
+.loginBtn span:nth-child(1){
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: bt-ani 1s linear infinite;
+}
+.loginBtn span:nth-child(2){
+    top: -100%;
+    right: 0;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: bt-ani2 1s linear infinite;
+    animation-delay: .25s;
+}
+.loginBtn span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: bt-ani3 1s linear infinite;
+    animation-delay: .75s;
+}
+.loginBtn span:nth-child(4){
+    left: 0;
+    bottom: -100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: bt-ani4 1s linear infinite;
+    animation-delay: .75s;
+}
 .has-error{
-    color:red;
+    color:#03e9f4;
     font-size: .9;
     display: block !important;
+}
+@keyframes bt-ani{
+    0%{left: -100%;}
+    100%{left: 100%;}
+}
+@keyframes bt-ani2{
+    0%{top: -100%;}
+    100%{top: 100%;}
+}
+@keyframes bt-ani3{
+    0%{right: -100%;}
+    100%{right: 100%;}
+}
+@keyframes bt-ani4{
+    0%{bottom: -100%;}
+    100%{bottom: 100%;}
 }

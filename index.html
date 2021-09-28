@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
     <title>singin</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     
     <div id="app">
-        <form @submit.prevent="singinU">
-            <div>
-                <label for="email">email</label>
-                <input type="email" name="email" id="email" v-model="email">
-                <p :class="{'has-error' : emailError[0] }" style="display: none;" v-text="emailError[1]"></p>
+        <div class="container">
+            <div class="singin">
+                <form @submit.prevent="singinU">
+                    <h2>{{title}}</h2>
+                    <div class="inputs-singin">
+                        <label for="email">email</label>
+                        <input type="email" name="email" id="email" v-model="email">
+                        <p :class="{'has-error' : emailError[0] }" style="display: none;" v-text="emailError[1]"></p>
+                    </div>
+                    <div class="inputs-singin">
+                        <label for="password">password</label>
+                        <input type="password" name="password" id="password" v-model="password">
+                        <p :class="{'has-error' : passwordError[0] }" style="display: none;" v-text="passwordError[1]"></p>
+                    </div>
+                    <a href="#" class="loginBtn" type="submit">submit
+                        <span></span><span></span>
+                        <span></span><span></span>
+                    </a>
+                </form>
             </div>
-            <div>
-                <label for="password">password</label>
-                <input type="password" name="password" id="password" v-model="password">
-                <p :class="{'has-error' : passwordError[0] }" style="display: none;" v-text="passwordError[1]"></p>
-            </div>
-            <button type="submit">submit</button>
-        </form>
+        </div>
 
     </div>
     <script src="https://unpkg.com/vue@next"></script>
@@ -32,7 +40,9 @@
             data(){
                 return{
                     email:"example@mail.com",
-                    password:"A0123459568a"
+                    password:"A0123459568a",
+
+                    title:"singin"
                 }
             },
             computed:{
@@ -41,14 +51,14 @@
                     if(this.validEmail(email))
                         return[false,null]
                     else
-                        return[true,'فرمت ایمیل اشتباه است']
+                        return[true,'The email format is incorrect']
                 },
                 passwordError(){
                     let password=this.password
-                    if(password.lenght<8)
-                        return[true,'حداقل 8 کارکتر وارد کنید']
+                    if(password.length < 8)
+                        return[true,'Enter a password length of at least 8 characters']
                     else
-                    return[false,null]
+                    return[false , null]
                 }
             },
             methods:{
@@ -59,7 +69,7 @@
                 var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return re.test(email);
                 }
-            },
+            }
             
             
         }
